@@ -1,0 +1,40 @@
+{% extends "customer/index.html" %}
+{% block content %}
+<div class="conteiner mt-5">
+    <div class="row justify-content-center">
+        <div class="col text-center">
+            <p class="h2">What's on our Menu</p>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col text-center col-sm-12 col-lg-6 col-md-8">
+            <form action="{% url 'menu_search' %}" method="get" class="form">
+                {% csrf_token %}
+                <div class="form-floating mb-3 form-floating-sm">
+                    <input id="menu_bar" type="text" class="form-control" placeholder="Search for your dish" name="q">
+                    <label for="menu_bar" class="form-label">Search for your dish</label>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col text-center">
+                        <button class="btn bg-primary btn-outiline" type="submit">Search</button>
+                    </div>
+                </div>                 
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col col-md-12 col-lg-8 text-center col-sm-12">
+            {% for item in menu_items %}
+            <div class="col">
+                <img src="{{ item.image.url }}" width="250" height="250" class="mb-3" style="border-radius: 20px;">
+                <p class="lead fw-bold"><label>Food Name: </label> {{ item.name }}</p>
+                <p><label>Price</label>: Ksh: {{ item.price }}</p>
+                <span><label class="lead fw-bold" style="text-decoration: underline;">Description:</label></span>
+                <br>
+                <p>{{ item.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% extends "customer/index.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="card col-md-5 mr-3">
+            <h4 class="text-center">Today's Total Income</h4>
+            <h1 class="text-center" style="color: green;">Ksh: {{ income }}</h1>
+        </div>
+
+        <div class="card col-md-5" style="margin-left: 10px;">
+            <h4 class="text-center">Today's Total Orders</h4>
+            <h1 class="text-center" style="color: red;">{{ total_orders }}</h1>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Price</th>
+                            <th>First Name</th>
+                            <th>Second Name</th>
+                            <th>Email</th>
+                            <th>County</th>
+                            <th>Sub-County</th>
+                            <th>Area</th>
+                            <th>Paid</th>
+                            <th>Delivered</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <th><a href="{% url 'order_details' order.pk %}"> {{order.pk}}</a></th>
+                            <td>{{ order.price }}</td>
+                            <td>{{ order.first_name }}</td>
+                            <td>{{ order.second_name }}</td>
+                            <td>{{ order.email }}</td>
+                            <td>{{ order.county }}</td>
+                            <td>{{ order.sub_county }}</td>
+                            <td>{{ order.area }}</td>
+                            <td>
+                                {% if order.is_paid %}
+                                ✔
+                                {% else %}
+                                ❌
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if order.is_delivered %}
+                                ✔
+                                {% else %}
+                                ❌
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>  
+{% endblock content %}
+

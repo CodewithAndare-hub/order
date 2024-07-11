@@ -1,0 +1,47 @@
+{% extends "customer/index.html" %}
+{% block content %}
+  
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12 text-center mt-3">
+            <h1>Order ID: {{ order.pk }}</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-sm-12">
+            <h3>Customer Information:</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12">
+            <p><span style="font-weight:400;">First Name:</span> {{ order.first_name }}</p>
+            <p><span style="font-weight: 400;">Second Name:</span> {{ order.second_name }}</p>
+            <p class="h5 pt-3" style="text-decoration: underline;">Address Information</p>
+            <p><span style="font-weight: 400;">Email:</span> {{ order.email }}</p>
+            <p><span style="font-weight: 400;">County:</span> {{ order.county }}</p>
+            <p><span style="font-weight: 400;">Sub_county:</span> {{ order.sub_county }}</p>
+            <p><span style="font-weight: 400;">Area:</span> {{ order.area }}</p>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <p class="h5 pt-3" style="text-decoration: underline;">Payment and Shippment</p>
+            <p class="mt-3">
+                {% if order.is_paid%}
+                <p><i class="fas fa-check" style="color: green;"></i><span class="pl-2">Order has been paid</span></p>
+                {% else %}
+                <p><i class="fas fa-times" style="color: red;"></i><span class="pl-2">Order has not been paid</span>{% endif %}
+                </p>
+                {% if order.is_delivered%}
+                <p><i class="fas fa-check" style="color: green;"></i><span class="pl-2">Order has delivered</span></p>
+                {% else %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-success" type="submit">Mark as Shipped</button>
+                </form>                
+                {% endif %}
+            </p>
+
+    </div>    
+</div>
+
+{% endblock content %}
+

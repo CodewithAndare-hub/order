@@ -1,0 +1,206 @@
+{% extends "customer/index.html" %}
+{% block content %}
+  <div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+      <div class="col-md-12 col-sm-12 p-4">
+        <form method="POST"class="was-validated">
+          {% csrf_token %}
+          <div class="pt-5">
+            {% for item in snacks %}
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <img class="rounded" width="150" height="100" src="{{ item.image.url }}">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" name="items[]" value="{{ item.pk }}">
+                      <label for="" class="form-check-label fw-bold">{{ item.name }}</label> <span><p class="lead">Price: Ksh: {{ item.price }}</p></span>
+                    </div>
+                    
+                  </div>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div>
+            {% for item in dessert %}
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <img class="rounded" width="150" height="100" src="{{ item.image.url }}">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" name="items[]" value="{{ item.pk }}">
+                      <label for="" class="form-check-label fw-bold">{{ item.name }}</label> <span><p class="lead">Price: Ksh: {{ item.price }}</p></span>
+                    </div>
+                    
+                  </div>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div> 
+          <div>
+            {% for item in vitamins %}
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <img class="rounded" width="150" height="100" src="{{ item.image.url }}">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" name="items[]" value="{{ item.pk }}">
+                      <label for="" class="form-check-label fw-bold">{{ item.name }}</label> <span><p class="lead">Price: Ksh: {{ item.price }}</p></span>
+                    </div>
+                    
+                  </div>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div>
+            {% for item in proteins %}
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <img class="rounded" width="150" height="100" src="{{ item.image.url }}">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" name="items[]" value="{{ item.pk }}">
+                      <label for="" class="form-check-label fw-bold">{{ item.name }}</label> <span><p class="lead">Price: Ksh: {{ item.price }}</p></span>
+                    </div>
+                    
+                  </div>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div> 
+          <div>
+            {% for item in beverage_drinks %}
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <img class="rounded" width="150" height="100" src="{{ item.image.url }}">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" name="items[]" value="{{ item.pk }}">
+                      <label for="" class="form-check-label fw-bold">{{ item.name }}</label> <span><p class="lead">Price: Ksh: {{ item.price }}</p></span>
+                    </div>
+                    
+                  </div>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div> 
+          <div>
+            {% for item in soft_drinks %}
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <img class="rounded" width="150" height="100" src="{{ item.image.url }}">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" name="items[]" value="{{ item.pk }}">
+                      <label for="" class="form-check-label fw-bold">{{ item.name }}</label> <span><p class="lead">Price: Ksh: {{ item.price }}</p></span>
+                    </div>
+                    
+                  </div>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div>
+            {% for item in carbohydrates %}
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <img class="rounded" width="150" height="100" src="{{ item.image.url }}">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input " name="items[]" value="{{ item.pk }}">
+                      <label for="" class="form-check-label fw-bold">{{ item.name }}</label> <span><p class="lead">Price: Ksh: {{ item.price }}</p></span>
+                    </div>
+                    
+                  </div>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="row justify-content-center">
+            <div class="col col-lg-8 text-center col-sm-12 col-md-8">
+              <div class="form-group pt-3">
+                <label for="first_name" class="form-label">First Name</label>
+                <input type="text" class="form-control form-control-sm" id="first_name" name="first_name" required >
+              </div>          
+              <div class="form-group pt-3">
+                <label for="second_name" class="form-label">Second Name</label>
+                <input type="text" class="form-control form-control-sm" id="second_name" name="second_name" required>
+              </div>          
+              <div class="form-group pt-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control form-control-sm" id="email" name="email" required placeholder="eg trial@gmail.com">
+              </div>
+              
+              <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12">
+                  <div class="form-group pt-3">
+                    <label for="county" class="form-label">County</label>
+                    <select name="county" id="county" class="form-select form-select-sm" required>
+                      <option selected>Kajiado</option>
+                      <option>Nairobi</option>
+                      <option>Machakos</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12">
+                  <div class="form-group pt-3">
+                    <label for="sub_county" class="form-label">Sub County</label>
+                    <input type="text" class="form-control form-control-sm" id="sub_county" name="sub_county" required>
+                  </div>                  
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12">
+                  <div class="form-group pt-3">
+                    <label for="area" class="form-label">Area/Estate</label>
+                    <input type="text" class="form-control form-control-sm" id="area" name="area" required>
+                  </div>                  
+                </div>                                
+              </div>          
+              <!--The button-->
+              <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Order
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Submit Your Order</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go back</button>
+                      <button type="submit" class="btn btn-primary">Place Order</button>
+                    </div>
+                  </div>
+                </div>
+              </div>               
+            </div>
+          </div>                                                
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
